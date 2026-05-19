@@ -20,7 +20,7 @@ const Searchbar = () => {
       <div className="bg-white w-40 h-11 rounded-xl border border-[#D1D5DB] px-4 flex items-center">
         <Select className="w-full" placeholder="All Categories">
           <Label className="hidden">Category</Label>
-          <Select.Trigger className="w-full h-full border-none shadow-none bg-transparent p-0 min-h-0 flex items-center justify-between">
+          <Select.Trigger className="w-full h-full border-none shadow-none bg-transparent p-0 flex items-center justify-between gap-3">
           <Select.Value />
           <Select.Indicator />
           </Select.Trigger>

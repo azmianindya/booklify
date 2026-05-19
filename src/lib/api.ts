@@ -8,5 +8,5 @@ export const fetchBooks = async (): Promise<Book[]> => {
   }
  
   const data = await response.json()
-  return data.results.slice(0, 6) as Book[]
+  return data.results.slice(0, 21) as Book[]
 }
