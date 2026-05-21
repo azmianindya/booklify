@@ -1,12 +1,8 @@
-import type { Book } from "../features/books/types/types.ts"
+import type { Book } from "../features/books/types/types"
  
 export const fetchBooks = async (): Promise<Book[]> => {
-  const response = await fetch("https://gutendex.com/books/")
- 
-  if (!response.ok) {
-    throw new Error("Gagal fetch data")
-  }
- 
-  const data = await response.json()
-  return data.results.slice(0, 21) as Book[]
+  const res = await fetch("https://gutendex.com/books/")
+  if (!res.ok) throw new Error("Gagal fetch data")
+  const data = await res.json()
+  return data.results
 }
