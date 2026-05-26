@@ -1,4 +1,4 @@
-import type { Author } from "../types/types"
+import type { Author } from "../types/book"
 
 export const getCoverUrl = (formats: Record<string, string>) =>
   Object.entries(formats).find(([key]) => key.startsWith("image/"))?.[1] ?? null

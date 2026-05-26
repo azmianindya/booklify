@@ -1,9 +1,8 @@
-import {SearchField, Label, ListBox, Select} from "@heroui/react";
+import { SearchField, Label, ListBox, Select } from "@heroui/react"
 
 const Searchbar = () => {
   return (
-    <div className="flex flex-row bg-gray-200 justify-between items-center gap-4">
-    
+    <div className="flex flex-row bg-transparent justify-between items-center gap-4 mb-6">
       {/* search */}  
       <div className="bg-white w-[320px] h-11 rounded-xl border border-[#D1D5DB] px-4 flex items-center">
         <SearchField name="search" className="w-full" aria-label="Search books">
@@ -38,7 +37,6 @@ const Searchbar = () => {
           </Select.Popover>
         </Select>
       </div>
-        
     </div>
   )
 }
