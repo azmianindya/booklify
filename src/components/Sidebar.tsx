@@ -1,52 +1,32 @@
-import { IoLibrarySharp, IoHome, IoSettingsSharp } from "react-icons/io5";
-import { FaBook } from "react-icons/fa";
-import { MdPeopleAlt } from "react-icons/md";
-import { HiDocumentText } from "react-icons/hi2";
+import {RiBookOpenFill} from "react-icons/ri";
+import {GrHomeRounded} from "react-icons/gr";
+import {BiBookOpen} from "react-icons/bi";
+import {BsPeople} from "react-icons/bs";
+import {HiOutlineDocument} from "react-icons/hi2";
+import {LuSettings} from "react-icons/lu";
+import SidebarButton from "./SidebarButton.tsx";
 
-const Sidebar = () => {
-  return (
-    <div className="w-60 min-h-screen bg-white border-r border-[#E5E7EB] px-6 py-8">
 
-      {/* logo */}
-      <div className="flex items-center gap-3">
-        <IoLibrarySharp size={28} color="#4338CA" />
-        <div className="font-bold text-black">
-          Perpustakaan
-        </div>
-      </div>
+type SidebarProps ={
+    currentMenu: string
+}
 
-      {/* menu */}
-      <div className="flex flex-col gap-2 mt-12">
-
-        <div className="h-11 p-4 rounded-xl flex items-center gap-3 text-gray-600">
-          <IoHome size={20} />
-          <div>Dashboard</div>
-        </div>
-
-          {/* menu aktif */}
-          <div className="h-11 p-4 rounded-xl flex items-center gap-3 bg-[#ECEBFF] text-[#4338CA]">
-            <FaBook size={20} />
-            <div className="font-medium">Books</div>
-          </div>
-
-        <div className="h-11 p-4 rounded-xl flex items-center gap-3 text-gray-600">
-          <MdPeopleAlt size={20} />
-          <div>Members</div>
-        </div>
-
-        <div className="h-11 p-4 rounded-xl flex items-center gap-3 text-gray-600">
-          <HiDocumentText size={20} />
-          <div>Borrowing</div>
-        </div>
-
-        <div className="h-11 p-4 rounded-xl flex items-center gap-3 text-gray-600">
-          <IoSettingsSharp size={20} />
-          <div>Settings</div>
-        </div>
-
-      </div>
-    </div>
-  )
+const Sidebar = ({currentMenu}:SidebarProps) => {
+    return (
+        <div className="max-sm:invisible flex flex-col w-60 lg:w-60 md:w-60 h-screen bg-white border-r border-[#E5E7EB] gap-2 px-6 py-8">
+            <div className="flex flex-row justify-center gap-3 mb-12">
+                <div><RiBookOpenFill size={24} className="text-blue-400"/></div>
+                <div className=" font-bold">Perpustakaan</div>
+            </div>
+            <div className="flex flex-col gap-2">
+                <SidebarButton icon={<GrHomeRounded size={18}/>} label={"Dashboard"} isActive={currentMenu==="dashboard"} url={"/"}/>
+                <SidebarButton icon={<BiBookOpen size={18}/>} label={"Books"} isActive={currentMenu==="books"} url={"/books"}/>
+                <SidebarButton icon={<BsPeople size={18}/>} label={"Members"} isActive={currentMenu==="members"} url={"/members"}/>
+                <SidebarButton icon={<HiOutlineDocument size={18}/>} label={"Borrowing"} isActive={currentMenu==="borrowing"} url={"/borrowing"}/>
+                <SidebarButton icon={<LuSettings size={18}/>} label={"Settings"} isActive={currentMenu==="settings"} url={"/settings"}/>
+            </div>
+        </div>  
+    )
 }
 
 export default Sidebar
